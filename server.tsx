@@ -77,8 +77,9 @@ app.get("/:name", async (c: Context) => {
             <h6>年齢: {result["年齢"] + 2}歳 (2021年当時)</h6>
             <h6>身長: {result["身長"]}cm</h6>
             <h6>生年月日: {result["生年月日"]}</h6>
-            <h6>備考: {result["情報"]}</h6>
+            <h6 className="bikou">出演ドラマのあらすじ: {result["情報"]}</h6>
           </div>
+          <a href="/#callback.cgi">トップページ</a>
           <style>
             {`
             body {
@@ -87,7 +88,7 @@ app.get("/:name", async (c: Context) => {
               justify-content: center;
               align-items: center;
               width: 100vw;
-              height: 100vh;
+              min-height: 100vh;
               overflow-x: hidden;
             }
 
@@ -110,13 +111,22 @@ app.get("/:name", async (c: Context) => {
             .infos h6 {
               margin-top: 20px;
             }
+
+            .bikou {
+              width: 320px;
+              word-wrap: wrap;
+            }
             `}
           </style>
         </body>
       </html>
-    )
+    ).replaceAll("<!-- -->", "")
   );
 });
+
+app.get("/", (c: Context) =>{
+  return c.text("Logging: News.cgi / 現在メンテナンス中です。復旧までお待ち下さい。")
+})
 
 const { serve } = Deno;
 
