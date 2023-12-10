@@ -1,7 +1,8 @@
 import { TypeInfo } from './types.ts';
 import { Context, Hono } from "https://deno.land/x/hono@v3.11.4/mod.ts";
 import Infos from "./info.json" assert { type: "json" };
-import React from "https://esm.sh/react"
+import React from "https://esm.sh/react@18.2.0"
+import { renderToString } from "https://esm.sh/react-dom@18.2.0/server"
 
 const infos: TypeInfo[] = Infos.baka; // ここに info.json 
 
@@ -31,11 +32,7 @@ app.all("/api/v1/:name", (c: Context) => {
 
 app.get("/:name", (c: Context) => {
 
-    c.setRenderer((_props: TypeInfo) => {
-        return <>a: test</>
-    })
-
-    return c.render()
+    return c.html(renderToString(<>a: 1</>))
 })
 
 const { serve } = Deno;
