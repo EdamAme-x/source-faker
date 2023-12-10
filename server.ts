@@ -3,7 +3,7 @@ import { Context, Hono } from "https://deno.land/x/hono@v3.0.0/mod.ts";
 import Infos from "./info.json" assert { type: "json" };
 
 
-const infos: TypeInfo[] = Infos.baka; // ここに info.json 飯食ってくる ほかにも颯化した奴、する予定の奴追加頼む by amex
+const infos: TypeInfo[] = Infos.baka; // ここに info.json 
 
 const app: Hono = new Hono();
 
@@ -12,11 +12,9 @@ app.get("/", (c: Context) => {
   return c.html("<b>test!</b>");
 });
 
-// koko 動的にしよう
-// /植田大輝でアクセス
-//植田とか河野の名前入れたらjson来るようにする？ un 飯食う
+// /名前 でアクセス
 app.all("/api/v1/:name", (c: Context) => {
-  const name: string = c.req.param("name") ?? ""; // /[name] のnameが渡される ここでjson返すか それともレンダリングするか
+  const name: string = c.req.param("name") ?? ""; // /[name] のnameが渡される 
 
   const info = infos.find((info: TypeInfo) => {
     if (info["名前"] === name) {
