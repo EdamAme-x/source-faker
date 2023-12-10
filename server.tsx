@@ -58,9 +58,60 @@ app.get("/:name", async (c: Context) => {
           <link rel="icon" href="https://cdn.ame-x.net/Xuery.png" />
         </head>
         <body>
-          <div>
-            <img src="https://ctkpaarrdata.files.wordpress.com/2023/07/image.png" alt="author" />
+          <div className="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 40"
+              x="0px"
+              y="0px"
+            >
+              <g data-name="5">
+                <path d="M9,9a7,7,0,1,1,7,7A7,7,0,0,1,9,9Zm18.67,9a5.11,5.11,0,0,0-5-4,1,1,0,0,0-.74.33,8,8,0,0,1-11.9,0A1,1,0,0,0,9.31,14a5.11,5.11,0,0,0-5,4L2,28.79A1,1,0,0,0,3,30H29a1,1,0,0,0,1-1.21Z" />
+              </g>
+            </svg>
           </div>
+          <div className="infos">
+            <h1>{result["名前"]}</h1>
+            <h4>{result["別名"]}</h4>
+            <h6>出身地: {result["出身地"]}</h6>
+            <h6>年齢: {result["年齢"] + 2}歳 (2021年当時)</h6>
+            <h6>身長: {result["身長"]}cm</h6>
+            <h6>生年月日: {result["生年月日"]}</h6>
+            <h6>備考: {result["情報"]}</h6>
+          </div>
+          <style>
+            {`
+            body {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              width: 100vw;
+              height: 100vh;
+              overflow-x: hidden;
+            }
+
+            .icon {
+              max-width: 300px;
+              width: 300px;
+            }
+
+            .infos { 
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .infos * {
+              margin: 0;
+            }
+
+            .infos h6 {
+              margin-top: 20px;
+            }
+            `}
+          </style>
         </body>
       </html>
     )
