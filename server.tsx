@@ -57,6 +57,11 @@ app.get("/:name", async (c: Context) => {
           <link rel="stylesheet" href="https://cdn.ame-x.net/site-auto.css" />
           <link rel="icon" href="https://cdn.ame-x.net/Xuery.png" />
         </head>
+        <body>
+          <div>
+            <img src="https://ctkpaarrdata.files.wordpress.com/2023/07/image.png" alt="author" />
+          </div>
+        </body>
       </html>
     )
   );
