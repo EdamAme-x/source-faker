@@ -1,16 +1,11 @@
 import { TypeInfo } from './types.ts';
-import { Context, Hono } from "https://deno.land/x/hono@v3.0.0/mod.ts";
+import { Context, Hono } from "https://deno.land/x/hono@v3.11.4";
 import Infos from "./info.json" assert { type: "json" };
 
 
 const infos: TypeInfo[] = Infos.baka; // ここに info.json 
 
 const app: Hono = new Hono();
-
-// メインページ
-app.get("/", (c: Context) => {
-  return c.html("<b>test!</b>");
-});
 
 // /名前 でアクセス
 app.all("/api/v1/:name", (c: Context) => {
@@ -33,6 +28,15 @@ app.all("/api/v1/:name", (c: Context) => {
     ...info
   });
 });
+
+app.get("/:name", (c: Context) => {
+
+    c.setRenderer((_props: TypeInfo) => {
+        return <></>
+    })
+
+    return c.render()
+})
 
 const { serve } = Deno;
 
