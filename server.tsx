@@ -32,6 +32,7 @@ app.all("/api/v1/:name", (c: Context) => {
 
 app.get("/:name", (c: Context) => {
 
+    // SEOはガン無視 必要であれば追加
     return c.html(renderToString(<>a: 1</>))
 })
 
