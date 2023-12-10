@@ -74,9 +74,10 @@ app.get("/:name", async (c: Context) => {
             <h1>{result["名前"]}</h1>
             <h4>{result["別名"]}</h4>
             <h6>出身地: {result["出身地"]}</h6>
-            <h6>年齢: {result["年齢"] + 2}歳 (2021年当時)</h6>
+            <h6>年齢: {result["年齢"] - 2}歳 (2021年当時)</h6>
             <h6>身長: {result["身長"]}cm</h6>
             <h6>生年月日: {result["生年月日"]}</h6>
+            <h6>役: {result["職業"]}</h6>
             <h6 className="bikou">出演ドラマのあらすじ: {result["情報"]}</h6>
           </div>
           <a href="/#callback.cgi">トップページ</a>
