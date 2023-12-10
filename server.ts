@@ -2,7 +2,7 @@ import { TypeInfo } from './types.ts';
 import { Context, Hono } from "https://deno.land/x/hono@v3.0.0/mod.ts";
 import Infos from "./info.json" assert { type: "json" };
 
-// 後でany外す
+
 const infos: TypeInfo[] = Infos.baka; // ここに info.json 飯食ってくる ほかにも颯化した奴、する予定の奴追加頼む by amex
 
 const app: Hono = new Hono();
@@ -53,3 +53,4 @@ serve((req: Request, connInfo) => {
 //こんにちは evoraや
 //ちゃんとevoraになってる？ うん
 // ターミナル使えるようにした
+// 見えてる？
